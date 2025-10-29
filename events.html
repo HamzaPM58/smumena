@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="mena_logo.png">
+    <title>Events - MENA Society</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #fff;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #671513;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #F5E6D3;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: #FFE4B5;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(103, 21, 19, 0.5), rgba(103, 21, 19, 0.5)), 
+                        url('events_background.jpeg') center/cover;
+            color: #F5E6D3;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        /* Events Section */
+        .events-section {
+            padding: 0 2rem 4rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .events-section h2 {
+            font-size: 2.5rem;
+            color: #671513;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-style: italic;
+            margin-top: 3rem;
+        }
+
+        .events-section:first-of-type h2 {
+            margin-top: 0;
+        }
+
+        .event-card {
+            background: linear-gradient(135deg, #671513 0%, #8B1F1B 100%);
+            color: #F5E6D3;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .event-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        .event-date {
+            font-size: 1rem;
+            color: #FFE4B5;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .event-description {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .event-register {
+            display: inline-block;
+            background-color: #F5E6D3;
+            color: #671513;
+            padding: 0.7rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .event-register:hover {
+            background-color: #FFE4B5;
+            transform: translateY(-2px);
+        }
+
+        .no-events {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #671513 0%, #8B1F1B 100%);
+            color: #F5E6D3;
+            border-radius: 10px;
+        }
+
+        .no-events h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        .no-events p {
+            font-size: 1.1rem;
+        }
+
+        .event-card.past-event {
+            background: linear-gradient(135deg, #999999 0%, #666666 100%);
+            opacity: 0.9;
+        }
+
+        .past-badge {
+            display: inline-block;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: #F5E6D3;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #671513;
+            color: #F5E6D3;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: #F5E6D3;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #FFE4B5;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            .events-section h2 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="https://www.instagram.com/smu_menasociety/" target="_blank">Instagram</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>MENA Society Events</h1>
+        <p>Discover our upcoming and past events</p>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section class="events-section">
+        <h2>Upcoming Events</h2>
+        <div id="upcomingEventsContainer">
+            <!-- Upcoming events will be dynamically loaded here -->
+        </div>
+    </section>
+
+    <!-- Past Events Section -->
+    <section class="events-section">
+        <h2>Past Events</h2>
+        <div id="pastEventsContainer">
+            <!-- Past events will be dynamically loaded here -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>MENA Society - Saint Mary's University</p>
+        <p>Middle East and North African Society</p>
+    </footer>
+
+    <script>
+        // Events data
+        const allEvents = [
+            {
+                id: 1,
+                title: "MENA Society Bake Sale",
+                date: new Date(2025, 9, 27), // October 27, 2025
+                location: "Loyola Connolade",
+                description: "Cookies, muffins, brownies, cake pops, and more! Our first fundraising event where we sold delicious homemade baked goods. All proceeds went to support future society activities.",
+                isPast: true,
+                registrationLink: null,
+                entranceFee: null,
+                registrationRequired: false,
+                posterImage: "bake_sale_poster.png"
+            }
+        ];
+
+        // Format date nicely
+        function formatDate(date) {
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            return date.toLocaleDateString('en-US', options);
+        }
+
+        // Open event details page
+        function openEventPage(eventId) {
+            // Store the event data in localStorage to pass to the detail page
+            const event = allEvents.find(e => e.id === eventId);
+            if (event) {
+                localStorage.setItem('selectedEvent', JSON.stringify(event));
+                window.location.href = 'bake-sale.html';
+            }
+        }
+
+        // Display upcoming events
+        const upcomingEventsContainer = document.getElementById('upcomingEventsContainer');
+        const upcomingEvents = allEvents.filter(event => !event.isPast);
+
+        if (upcomingEvents.length === 0) {
+            upcomingEventsContainer.innerHTML = `
+                <div class="no-events">
+                    <h3>No Events Currently Scheduled</h3>
+                    <p>More events coming soon! Follow us on social media for the latest updates.</p>
+                </div>
+            `;
+        } else {
+            upcomingEvents.forEach(event => {
+                const eventHTML = `
+                    <div class="event-card" onclick="openEventPage(${event.id})">
+                        <h3>${event.title}</h3>
+                        <div class="event-date">${formatDate(event.date)} • ${event.location}</div>
+                        <div class="event-description">${event.description}</div>
+                        <button class="event-register" onclick="event.stopPropagation();">View Details</button>
+                    </div>
+                `;
+                upcomingEventsContainer.innerHTML += eventHTML;
+            });
+        }
+
+        // Display past events
+        const pastEventsContainer = document.getElementById('pastEventsContainer');
+        const pastEvents = allEvents.filter(event => event.isPast);
+
+        if (pastEvents.length === 0) {
+            pastEventsContainer.innerHTML = `
+                <div class="no-events" style="background: linear-gradient(135deg, #999999 0%, #666666 100%);">
+                    <h3>No Past Events Yet</h3>
+                    <p>Check back here to see our past events!</p>
+                </div>
+            `;
+        } else {
+            pastEvents.forEach(event => {
+                const eventHTML = `
+                    <div class="event-card past-event" onclick="openEventPage(${event.id})">
+                        <h3>${event.title}</h3>
+                        <div class="event-date">${formatDate(event.date)} • ${event.location}</div>
+                        <div class="event-description">${event.description}</div>
+                        <span class="past-badge">Past Event</span>
+                    </div>
+                `;
+                pastEventsContainer.innerHTML += eventHTML;
+            });
+        }
+    </script>
+</body>
+</html>

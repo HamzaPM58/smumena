@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="mena_logo.png">
+    <title>MENA Society Bake Sale - Event Details</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #F5E6D3;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #671513;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #F5E6D3;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: #FFE4B5;
+        }
+
+        /* Back Button */
+        .back-button {
+            display: inline-block;
+            background-color: #671513;
+            color: #F5E6D3;
+            padding: 0.7rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 2rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .back-button:hover {
+            background-color: #8b1a15;
+            transform: translateY(-2px);
+        }
+
+        /* Event Detail Container */
+        .event-detail-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .event-detail-header {
+            background: linear-gradient(135deg, #671513 0%, #8B1F1B 100%);
+            color: #F5E6D3;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .event-detail-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .event-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-label {
+            font-weight: bold;
+            color: #FFE4B5;
+            margin-bottom: 0.3rem;
+        }
+
+        .meta-value {
+            color: #F5E6D3;
+        }
+
+        /* Event Description */
+        .event-description-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .event-poster {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .event-description-section h2 {
+            color: #671513;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .event-description-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Past Event Badge */
+        .past-badge {
+            display: inline-block;
+            background-color: #ccc;
+            color: #666;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .register-btn {
+            flex: 1;
+            min-width: 200px;
+            background-color: #671513;
+            color: #F5E6D3;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .register-btn:hover {
+            background-color: #8b1a15;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .register-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #671513;
+            color: #F5E6D3;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .event-detail-header h1 {
+                font-size: 2rem;
+            }
+
+            .event-meta {
+                gap: 1rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .register-btn {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="https://www.instagram.com/smu_menasociety/" target="_blank">Instagram</a></li>
+        </ul>
+    </nav>
+
+    <!-- Back Button -->
+    <a href="events.html" class="back-button">← Back to Events</a>
+
+    <!-- Event Detail Container -->
+    <div class="event-detail-container">
+        <div class="event-detail-header" id="eventHeader">
+            <!-- Event header will be loaded here -->
+        </div>
+
+        <div class="event-description-section" id="eventDescription">
+            <!-- Event description will be loaded here -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>MENA Society - Saint Mary's University</p>
+        <p>Middle East and North African Society</p>
+    </footer>
+
+    <script>
+        // Load event data from localStorage
+        const eventData = localStorage.getItem('selectedEvent');
+        
+        if (eventData) {
+            const event = JSON.parse(eventData);
+
+            // Format date
+            function formatDate(date) {
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                return new Date(date).toLocaleDateString('en-US', options);
+            }
+
+            // Populate header
+            const eventHeader = document.getElementById('eventHeader');
+            let headerHTML = `
+                <h1>${event.title}</h1>
+                <div class="event-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Date</span>
+                        <span class="meta-value">${formatDate(event.date)}</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Time</span>
+                        <span class="meta-value">11:00 AM - 4:00 PM</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Location</span>
+                        <span class="meta-value">${event.location}</span>
+                    </div>
+                </div>
+            `;
+            
+            if (event.isPast) {
+                headerHTML += '<span class="past-badge">Past Event</span>';
+            }
+
+            eventHeader.innerHTML = headerHTML;
+
+            // Populate description
+            const eventDescription = document.getElementById('eventDescription');
+            let descriptionHTML = `
+                <h2>About This Event</h2>
+            `;
+
+            // Add poster image if available
+            if (event.posterImage) {
+                descriptionHTML += `<img src="${event.posterImage}" alt="${event.title} Poster" class="event-poster">`;
+            }
+
+            descriptionHTML += `<p>${event.description}</p>`;
+
+            // Add registration and fee info
+            if (!event.isPast) {
+                if (event.registrationRequired && event.registrationLink) {
+                    descriptionHTML += `
+                        <div style="background-color: #f0f0f0; padding: 1.5rem; border-radius: 5px; margin-top: 1.5rem; border-left: 4px solid #671513;">
+                            <p style="margin-bottom: 0.5rem;"><strong>Registration Required:</strong></p>
+                            <p style="margin-bottom: 1rem; color: #666;">Please register to attend this event.</p>
+                    `;
+                    
+                    if (event.entranceFee && event.entranceFee > 0) {
+                        descriptionHTML += `<p style="margin-bottom: 1rem;"><strong>Entrance Fee:</strong> $${event.entranceFee.toFixed(2)}</p>`;
+                    } else {
+                        descriptionHTML += `<p style="margin-bottom: 1rem;"><strong>Entrance Fee:</strong> Free</p>`;
+                    }
+                    
+                    descriptionHTML += `
+                            <a href="${event.registrationLink}" target="_blank" class="register-btn" style="display: inline-block; text-decoration: none; margin-top: 1rem;">Register Now</a>
+                        </div>
+                    `;
+                } else {
+                    descriptionHTML += `
+                        <div style="background-color: #f0f0f0; padding: 1.5rem; border-radius: 5px; margin-top: 1.5rem; border-left: 4px solid #671513;">
+                            <p><strong>No registration required!</strong> Just show up and enjoy.</p>
+                    `;
+                    if (event.entranceFee && event.entranceFee > 0) {
+                        descriptionHTML += `<p style="margin-top: 1rem;"><strong>Entrance Fee:</strong> $${event.entranceFee.toFixed(2)}</p>`;
+                    } else {
+                        descriptionHTML += `<p style="margin-top: 1rem;"><strong>Entrance Fee:</strong> Free</p>`;
+                    }
+                    descriptionHTML += `</div>`;
+                }
+            } else {
+                // Past event info
+                descriptionHTML += `
+                    <div style="background-color: #f0f0f0; padding: 1.5rem; border-radius: 5px; margin-top: 1.5rem; border-left: 4px solid #999;">
+                        <p style="color: #666;"><strong>Registration:</strong> ${event.registrationRequired ? 'Was Required' : 'Not Required'}</p>
+                `;
+                if (event.entranceFee && event.entranceFee > 0) {
+                    descriptionHTML += `<p style="color: #666;"><strong>Entrance Fee:</strong> $${event.entranceFee.toFixed(2)}</p>`;
+                } else {
+                    descriptionHTML += `<p style="color: #666;"><strong>Entrance Fee:</strong> Free</p>`;
+                }
+                descriptionHTML += `</div>`;
+            }
+
+            descriptionHTML += `
+                <div class="action-buttons">
+                    <button class="register-btn" disabled>Past Event</button>
+                </div>
+            `;
+
+            eventDescription.innerHTML = descriptionHTML;
+
+        } else {
+            // If no event data, redirect back
+            window.location.href = 'events.html';
+        }
+    </script>
+</body>
+</html>

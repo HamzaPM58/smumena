@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="mena_logo.png">
+    <title>Our Team - MENA Society</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #fff;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #671513;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #F5E6D3;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: #FFE4B5;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(103, 21, 19, 0.5), rgba(103, 21, 19, 0.5)), 
+                        url('team_background.jpeg') center/cover;
+            color: #F5E6D3;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .team-tagline {
+            font-size: 1.2rem;
+            color: #FFE4B5;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 0 2rem 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-section h2 {
+            font-size: 2.5rem;
+            color: #671513;
+            margin-bottom: 3rem;
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* Hierarchy Pyramid */
+        .hierarchy-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        /* Level 1 - President */
+        .level-1 {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
+        /* Level 2 - VPs */
+        .level-2 {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            width: 100%;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        /* Level 3 - Organized by columns */
+        .level-3 {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .role-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .team-member {
+            background: linear-gradient(135deg, #671513 0%, #8B1F1B 100%);
+            color: #F5E6D3;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+            width: 200px;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .member-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        .member-role {
+            font-size: 1.1rem;
+            color: #FFE4B5;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #671513;
+            color: #F5E6D3;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: #F5E6D3;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #FFE4B5;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            .team-tagline {
+                font-size: 1rem;
+            }
+
+            .team-section h2 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+            }
+
+            .level-2,
+            .level-3 {
+                gap: 2rem;
+            }
+
+            .team-member {
+                padding: 1.5rem;
+                width: 180px;
+            }
+
+            .member-name {
+                font-size: 1.2rem;
+            }
+
+            .member-role {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .level-2,
+            .level-3 {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .team-member {
+                width: 160px;
+            }
+
+            .role-column {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="https://www.instagram.com/smu_menasociety/" target="_blank">Instagram</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Meet Our Team</h1>
+        <p>Discover the amazing people behind MENA Society</p>
+        <p class="team-tagline">Dedicated to creating unforgettable experiences together</p>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <h2>Our Organization</h2>
+        
+        <!-- Hierarchy Pyramid -->
+        <div class="hierarchy-container">
+            <!-- Level 1: President -->
+            <div class="level-1">
+                <div class="team-member">
+                    <div class="member-name">Yumna</div>
+                    <div class="member-role">President</div>
+                </div>
+            </div>
+
+            <!-- Level 2: Vice Presidents -->
+            <div class="level-2">
+                <div class="team-member">
+                    <div class="member-name">Laila</div>
+                    <div class="member-role">VP External</div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-name">Hala</div>
+                    <div class="member-role">VP Internal</div>
+                </div>
+            </div>
+
+            <!-- Level 3: Coordinators and Support - Organized by role column -->
+            <div class="level-3">
+                <!-- Treasurer Column -->
+                <div class="role-column">
+                    <div class="team-member">
+                        <div class="member-name">Hamza</div>
+                        <div class="member-role">Treasurer</div>
+                    </div>
+                </div>
+
+                <!-- Event Coordinators Column -->
+                <div class="role-column">
+                    <div class="team-member">
+                        <div class="member-name">Malak</div>
+                        <div class="member-role">Event Coordinator</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-name">Tariq</div>
+                        <div class="member-role">Event Coordinator</div>
+                    </div>
+                </div>
+
+                <!-- Social Media Coordinators Column -->
+                <div class="role-column">
+                    <div class="team-member">
+                        <div class="member-name">Nancy</div>
+                        <div class="member-role">Social Media Coordinator</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-name">Shahd</div>
+                        <div class="member-role">Social Media Coordinator</div>
+                    </div>
+                </div>
+
+                <!-- Outreach Column -->
+                <div class="role-column">
+                    <div class="team-member">
+                        <div class="member-name">Hanin</div>
+                        <div class="member-role">Outreach</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-name">Lashaan</div>
+                        <div class="member-role">Outreach</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>MENA Society - Saint Mary's University</p>
+        <p>Middle East and North African Society</p>
+    </footer>
+</body>
+</html>
