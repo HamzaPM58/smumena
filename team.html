@@ -243,10 +243,17 @@
         }
 
         @media (max-width: 600px) {
-            .level-2,
-            .level-3 {
+            .level-2 {
                 flex-direction: column;
                 gap: 1.5rem;
+            }
+
+            .level-3 {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+                justify-items: center;
+                flex-wrap: nowrap;
             }
 
             .team-member {
@@ -255,6 +262,10 @@
 
             .role-column {
                 width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: center;
             }
         }
     </style>
@@ -279,7 +290,6 @@
 
     <!-- Team Section -->
     <section class="team-section">
-        
         <!-- Hierarchy Pyramid -->
         <div class="hierarchy-container">
             <!-- Level 1: President -->
